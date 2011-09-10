@@ -13,7 +13,7 @@
 %Commands for this document...
 \begin{document}
 \begin{center}
-Quantifying Sensitivities and Covariances in Nuclear Fuel Cycle Outcomes\\
+Entropy-Based Nuclear Fuel Cycle Sensitivities and Covariances\\
 \vspace{10mm}
 Anthony Michael Scopatz, Erich A. Schneider\\
 The University of Texas at Austin\\
@@ -85,13 +85,38 @@ measure supports fuel cycle analysis and decision-making by identifying inputs (
 parent technologies) that can, if also altered, augment or reduce the effect of the decision
 being considered.
 
-The remainder of this paper is organized as follows.  \S \ref{sec:methodology} begins with a summary of the
-methodology employed to carry out the study.  \S \ref{sec:nfcsim} describes the fuel cycle 
+The remainder of this paper is organized as follows.  \S \ref{sec:it-overview} provides a brief overview 
+of the field of information theory and its underlying metrics, which are relied on heavily in this paper.
+\S \ref{sec:methodology} presents an algorithmic summary of the
+methodology employed to carry out the fuel cycle study.  \S \ref{sec:nfcsim} describes the fuel cycle 
 simulations and method for sampling the input parameters to be varied, while \S \ref{sec:ct} 
 presents the theoretical background underpinning the entropy-based
 statistical measures.  \S \ref{sec:results} provides results for the statistical measures applied to the scenario
 space outlined in \S \ref{sec:nfcsim} and offers several case studies that illustrate the interpretation
 of the statistical outcomes.  \S \ref{sec:conclusion} concludes with options for future work.
+
+
+
+\section{Information Theory Overview}
+\label{sec:it-overview}
+
+The field of Information Theory is often said to have formed with C. E. Shannon's seminal 1948 publication 
+entitled ``A Mathematical Theory of Communication'' \cite{Shannon1948}.  Here, he detailed a parameter 
+known as \emph{entropy} and applied it to the challenge of conveying messages using the minimal 
+amount of information.  He applied this entropy-based framework to disctrete and continuous, noisy and noiseless 
+communication systems.
+
+Shannon's entropy is a probabilistic quantitiy named in analogy to the thermodynamic property.
+The statistical dynamic entity was first formulated via the H-Theorem set down by L. Boltzmann 
+\cite{Boltzmann1872}.  This theorem shows that the entropy of a collection of particles 
+may only increase with time until the state of maximum entropy, which is described by a 
+kinetic energy of the particles having Gausiaun distribution.  
+
+Both the physical and Shannon entropy are measures of a complex system given a certain set of 
+microstates or probabilities.  They therefore can be used as a way to coorrelate the system 
+as a whole to its underlying indpendent variables \cite{Watanabe1960}.
+
+
 
 \section{Methodology}
 \label{sec:methodology}
