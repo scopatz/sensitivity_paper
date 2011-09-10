@@ -1,8 +1,3 @@
-%General LaTeX Document Template
-%Build Using...
-%     NAME="sensitivity_paper" && latex ${NAME}.tex && dvipdf ${NAME}.dvi
-%   with BibTeX
-%     NAME="sensitivity_paper" && latex ${NAME}.tex && bibtex ${NAME}.aux && latex ${NAME}.tex && latex ${NAME}.tex && dvipdf ${NAME}.dvi
 \documentclass[a4paper, 12pt]{article}
 \usepackage{a4wide}
 \usepackage{epsfig}
@@ -27,28 +22,27 @@ Jun Li\\
 University of North Carolina\\
 \vspace{2mm}
 Man-Sung Yim\\
-North Carolina State University\\
-\vspace{2mm}
-September 21\textsuperscript{th}, 2010
+Korea Advanced Institute of Science and Technology\\
 \end{center}
 \vspace{5mm}
 
 \section{Introduction}
 \label{sec:intro}
 
-Technology development and deployment (TD\&D) decisions will play a key role in
+Technology development and deployment decisions will play a key role in
 establishing the array of diverse, interconnected technologies that might comprise
 future nuclear fuel cycles (NFCs).  These decisions are made in view of one or more
 objectives for the NFC the technology will support.  Objectives include minimizing
 electricity production costs, increasing the efficiency of resource or geologic
 repository utilization, and mitigating the risk of safety incidents or misuse of
-technologies or materials.
+technologies or materials.  Additionally important to the system designer is the sensitivity 
+of input parameters to the ultimate design goals.  
 
-TD\&D decisions are justified by weighing their costs against the expected benefits,
-monetary, monetizable or otherwise, that follow when they come to fruition.  To that
-end, multiple NFC simulation models  \cite{Jacobson2009} \cite{GENIUS1} have been devised.  
-One aim of these models is enable these hypothetical outcomes to be quantified.  Two major 
-challenges associated with this goal are the uncertainties in the deployment and performance 
+In general, development and deployment decisions are justified by weighing their costs 
+against the expected benefits, monetary, monetizable or otherwise, that follow when they 
+come to fruition.  To that end, multiple NFC simulation models  \cite{Jacobson2009} \cite{GENIUS1} 
+have been devised.  One aim of these models is enable these hypothetical outcomes to be quantified.  
+Two major challenges associated with this goal are the uncertainties in the deployment and performance 
 of other NFC technologies and the nuclear energy industry as a whole, and the complex 
 interdependence between the technology being considered, other NFC technologies and their 
 own (uncertain) characteristics, and NFC outcomes.
@@ -58,7 +52,7 @@ theory to describe outcomes produced by an NFC model.  Past efforts at sensitivi
 analysis on this system have largely been limited to deterministic approaches.  For instance,
 brute-force techniques of linear sensitivity analysis have been used to give rise to sensitivity
 coefficients, i.e. the change in an outcome divided by the change in an input.  In principle, these
-coefficients are valuable inputs to the TD\&D decision-making process since they can inform the
+coefficients are valuable inputs to the decision-making process since they can inform the
 return on an investment.  For example, the incremental gain in heat-limited repository capacity per
 unit change in the efficiency of separating, say, americium from used fuel.
 
@@ -66,7 +60,7 @@ However, the coefficients have a limited range of validity since they are depart
 `base case' where each input is varied singly, holding others fixed.  Returning to the above example,
 the gain in repository capacity might be found to be quite small if the separation efficiency
 of plutonium is low (since Pu dominates the heat load borne by the repository). 
-On the other hand the repository capacity gains would be large
+On the other hand the capacity gains in a heat-limited repository would be large
 if the Pu separation efficiency is high (and Am dominates the heat load).  Many other
 parameter combinations of this type can be imagined, each contingent on and affecting 
 the characteristics of one of the fuel cycle technologies.  Comprehensive,
@@ -87,15 +81,17 @@ measure is defined.  This measure, a coefficient of variation, uses three-dimens
 table data to describe the change in the variance of an outcome with respect to one input, over the
 range of admissible values of a second input.  A high value for this statistic indicates that the
 impact of one input on the outcome is strongly dependent on the value of the second input.  This
-measure supports fuel cycle analysis and TD\&D decision-making by identifying inputs (and their
+measure supports fuel cycle analysis and decision-making by identifying inputs (and their
 parent technologies) that can, if also altered, augment or reduce the effect of the decision
 being considered.
 
-The remainder of this paper is organized as follows.  Section 2 begins with a summary of the
-methodology employed to carry out the study.  Section 3 describes the fuel cycle simulations and method for sampling the input parameters to be varied, while section 4 presents the theoretical background underpinning the entropy-based
-statistical measures.  Section 5 provides results for the statistical measures applied to the scenario
-space outlined in Section 3 and offers several case studies that illustrate the interpretation
-of the statistical outcomes.
+The remainder of this paper is organized as follows.  \S \ref{sec:methodology} begins with a summary of the
+methodology employed to carry out the study.  \S \ref{sec:nfcsim} describes the fuel cycle 
+simulations and method for sampling the input parameters to be varied, while \S \ref{sec:ct} 
+presents the theoretical background underpinning the entropy-based
+statistical measures.  \S \ref{sec:results} provides results for the statistical measures applied to the scenario
+space outlined in \S \ref{sec:nfcsim} and offers several case studies that illustrate the interpretation
+of the statistical outcomes.  \S \ref{sec:conclusion} concludes with options for future work.
 
 \section{Methodology}
 \label{sec:methodology}
