@@ -498,35 +498,42 @@ to quantify the sensitivity of $x$ given the sensitivity of  $y$ to the response
 To obtain such a metric, recall that each slice of a three-way table is itself a 2D contingency table.  It is therefore possible to compute the uncertainty
 coefficient $U(x|R)$ for every slice over $y$.  In doing so, a set of $C$ uncertainties are generated such that,
 \begin{equation}
-U(x|R)|y = \left\{ \left.U(x|R)\right|_{l_0}^{l_1}, \left.U(x|R)\right|_{l_1}^{l_2}, \ldots \left.U(x|R)\right|_{l_{C-1}}^{l_C}  \right\}
+\left\{U(x|R)|y\right\} = \left\{ \left.U(x|R)\right|_{l_0}^{l_1}, \left.U(x|R)\right|_{l_1}^{l_2}, \ldots \left.U(x|R)\right|_{l_{C-1}}^{l_C}  \right\}
 \label{eq:U_x_R_y}
 \end{equation}
 where $l$ is a sequence of $C+1$ points that defines the bin boundaries of $y$.
 From here, the mean $\mu$ and standard deviation $\sigma$ of the set seen in equation \ref{eq:U_x_R_y} may be 
 calculated.
-\begin{equation} \mu(U(x|R)|y) = \frac{1}{C} \sum_c^C U(x|R)|y_c \end{equation}
-\begin{equation} \sigma(U(x|R)|y) = \sqrt{ \frac{1}{C} \sum_c^C \left( U(x|R)|y_c - \mu(U(x|R)|y) \right)^2 } \end{equation}
-However, the choice of slicing along $y$ is somewhat arbitrary.  One could instead slice along $x$ and compute $\mu(U(y|R)|x)$ and $\sigma(U(y|R)|x)$
+\begin{equation} \mu(\left\{U(x|R)|y\right\}) = \frac{1}{C} \sum_c^C \left\{U(x|R)|y\right\}_c \end{equation}
+\begin{equation} \sigma(\left\{U(x|R)|y\right\}) = \sqrt{ \frac{1}{C} \sum_c^C \left( \left\{U(x|R)|y\right\}_c - \mu(\left\{U(x|R)|y\right\}) \right)^2 } \end{equation}
+However, the choice of slicing along $y$ is somewhat arbitrary.  One could instead slice along $x$ and compute 
+$\mu(\left\{U(y|R)|x\right\})$ and $\sigma(\left\{U(y|R)|x\right\})$
 by analogy to the equations above.
 
 Dividing the standard deviation by the mean yields a \emph{coefficient of variation} $c_v$:
-\begin{equation} c_v(U(x|R)|y) = \frac{\sigma(U(x|R)|y)}{\mu(U(x|R)|y)} \end{equation}
-Unlike the uncertainty coefficient, $c_v(U(x|R)|y)$ is not symmetric with respect to $x$ and $y$.  Thus the same pair will have a different rank when measuring
-with $c_v(U(y|R)|x)$.  A symmetric expression of the coefficient of variation is obtained by taking the average of the non-symmetric terms:
-\begin{equation} c_v(x|y|R) = \frac{1}{2} \left(c_v(U(x|R)|y) + c_v(U(y|R)|x)\right) \end{equation}
+\begin{equation} c_v(\left\{U(x|R)|y\right\}) = \frac{\sigma(\left\{U(x|R)|y\right\})}{\mu(\left\{U(x|R)|y\right\})} \end{equation}
+Unlike the uncertainty coefficient, $c_v(\left\{U(x|R)|y\right\})$ is not symmetric with respect to $x$ and $y$.  
+Thus the same pair will have a different rank when measuring
+with $c_v(\left\{U(y|R)|x\right\})$.  A symmetric expression of the coefficient of variation is obtained by taking 
+the average of the non-symmetric terms:
+\begin{equation} c_v(x|y|R) = \frac{1}{2} \left(c_v(\left\{U(x|R)|y\right\}) + c_v(\left\{U(y|R)|x\right\})\right) \end{equation}
 This measure has the following properties:
 \begin{enumerate}
     \item Defined on the range $[0, 1]$ since $0 \le U \le 1$.
-    \item $c_v = 0$ implies that both $\sigma = 0$, which indicates that $U(x|R)$
+    \item $c_v(x|y|R) = 0$ implies that both $\sigma = 0$, which indicates that $U(x|R)$
         shows no dependence on $y$.  Thus there are no covariant effects observed.
-    \item $c_v = 1$ indicates that both $\sigma = \mu$.  This connotes
+    \item $c_v(x|y|R) = 1$ indicates that both $\sigma = \mu$.  This connotes
         that the value of $x$ soley governs the response $R$ from $y$.
 \end{enumerate}
 
-The difference in ranking parameter pairs using $U(x,y|R)$ versus $c_v(U(x|R)|y)$ is that the uncertainty coefficient measures the magnitude
-of the effect on $R$ while the coefficients of variation measure the interdependence of $x$ and $y$ on the response.
-For example, the HLW storage time together with the LWR UF storage time are not of global importance to the repository capacity (low $U(x,y|R)$ value).
-However, changing one input has a great effect on the impact of other input to the repository capacity (high $c_v$ value).
+The difference in ranking parameter pairs using $U(x,y|R)$ versus $c_v(x|y|R)$ is that the uncertainty 
+coefficient measures the magnitude
+of the effect on $R$ while the coefficients of variation measure the interdependence of $x$ and $y$ on 
+the response.
+For example, the HLW storage time together with the LWR UF storage time are not of global importance to 
+the repository capacity (low $U(x,y|R)$ value).
+However, changing one input has a great effect on the impact of other input to the repository capacity 
+(high $c_v(x|y|R)$ value).
 Therefore, both metrics are needed to have a complete description of the three dimensional contingency tables.
 
 
@@ -538,7 +545,7 @@ The goal of this study, similar to other sensitivity studies \cite{Scopatz2010b}
 analyses \cite{Barratt2004}, is to quantitatively rank fuel cycle inputs against their effect on 
 the chosen response.  Here, the two dimensional uncertainty $U(x|R)$ takes the place of a 
 traditional sensitivity.  Likewise, the three dimensional $U(x,y|R)$ may be seen as a sensitivity 
-for a pair of parameters.  Lastly, the coefficient of variation $c_v(U(x|R)|y)$ is taken as a 
+for a pair of parameters.  Lastly, the coefficient of variation $c_v(x|y|R)$ is taken as a 
 measure of covariance effects between $x$ and $y$.  The covariance metric shows that some parameter 
 pairs have a significant joint effect on the fuel cycle. Hence, $x$ and $y$ may exhibit a greater 
 (or less than) commensurate response on the fuel cycle response than the sum of $x$ and $y$ effects individually.
