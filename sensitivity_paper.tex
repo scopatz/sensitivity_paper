@@ -102,8 +102,9 @@ for each input are to be chosen stochastically from a predefined, physically-val
 By generating many inputs and tabulating the corresponding results from an underlying physics-based
 fuel cycle model, the fuel cycle undergoes a Monte Carlo simulation.  An input-output vector
 constitutes a single fuel cycle realization.  From here, relevant statistical metrics on the set of
-realizations yield information on how the system as a whole performs.  This methodology may be seen
-graphically in Figure \ref{mcmethod}.
+realizations yield information on how the system as a whole performs.  
+Two independent parameters ($x$ and $y$) and one response ($R$) variable are examined.
+This methodology may be seen graphically in Figure \ref{mcmethod}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -138,7 +139,9 @@ transformations that constituent NFC technologies apply to the material flow.
 
 A fuel cycle simulation package that incorporates physics-based submodels of reactor burnup \cite{Scopatz2009} and
 repository performance \cite{Li2009} served as the platform for this analysis. The approach taken in each
-submodel is briefly summarized below. For additional details on this package refer to \cite{Li2009b}.
+submodel is briefly summarized below. Full fuel cycle execution time, including all transients in a closed cycle
+scenario, takes between 10-30 seconds on a modern computer processor. For additional details on this package 
+refer to \cite{Li2009b}.
 
 The importance of physics-based models (as opposed to curve fits or other parameterizations that are valid
 only under specific conditions) in a sensitivity study of this type must be stressed. Given the number of
@@ -153,7 +156,11 @@ rates, burnup, and isotopic transformation) that are functions of fluence. These
 given reactor and fuel type. The reactor model then uses mass-weighted superposition to recombine these
 isotopic parameters as needed to calculate the multiplication factor and maximum discharge burnup. This result is
 then folded in with a linear reactivity model for multi-batch criticality calculations that derive viable
-fresh fuel compositions.
+fresh fuel compositions.  Since the burnup, criticality, and transmutation information is parameterized per
+nuclide, this essential physics reactor submodel is more precise and perturbable than full-core linear 
+correlation coefficients.  However since the neutron flux spectrum is not parameterized, this reactor 
+methodology assumes a static flux over the course of the burn.  This paper is limited to examining cores where 
+static spectra are a reasonable approximations.
 
 The repository thermal analysis model was developed based on the
 analytical solution of a thermal conduction model for the presence of
@@ -319,22 +326,27 @@ For the NFC and input parameter family considered here, all parameters are funct
 (stochastic) continuous variable.  This approach can support discrete variables too (e.g., a 
 boolean flag indicating the availability of mixed-oxide fuel), but that avenue is not developed 
 in this study. For the continuous variables, more than two bins are required to
-be able to demonstrate a meaningful association.  It will be shown that 7 bins per axis on the contingency tables give rise to acceptable
-statistical fidelity.  However, even seven bins becomes unwieldy for visualization.
+be able to demonstrate a meaningful association.  It will be shown that 7 bins per axis on the contingency 
+tables give rise to acceptable statistical fidelity.  However, even seven bins becomes unwieldy for visualization.
 Table \ref{ct2d_example} displays a $4\times 3$ fuel cycle CT from the data set computed in
-the Monte Carlo loop.   This example compares the FR plutonium separation efficiency (SE) to the repository capacity,
-irrespective of what the values the other 29 system inputs take on.
+the Monte Carlo loop.   This example compares the FR plutonium separation efficiency (SE) to the 
+repository capacity, irrespective of what the values the other 29 system inputs take on.
 
 \input{figs/ct2d_example}
 
-The zero entry in Table \ref{ct2d_example} implies that for low plutonium separation efficiencies a high repository capacity is impossible.
-Additionally, some regions arise rarely, assumedly only for extreme values of one or more other inputs.
-High plutonium SE and low repository capacities occur with a vanishingly
-small probability.  The combination of these two restricted regimes leads to a table that is largely banded down the diagonal.
-The statistical measures chosen for examination should capture these effects.
+The zero entry in Table \ref{ct2d_example} implies that for low plutonium separation efficiencies a 
+high repository capacity is impossible.  Additionally, some regions arise rarely, assumedly only for 
+extreme values of one or more other inputs. High plutonium SE and low repository capacities occur with 
+a vanishingly small probability.  The combination of these two restricted regimes leads to a table that 
+is largely banded down the diagonal. The statistical measures chosen for examination should capture these 
+effects.
 
-As mentioned previously, contingency tables are not restricted to a two-way formulation.  Three dimensional tables may also be constructed from the same
-fuel cycle realizations.  In an effort to capture co-variant system effects, this paper examines two independent parameters ($x$ and $y$) and one response ($R$).  For instance, if the SE of plutonium coming from the FR changes, it is expected that the relative benefit from the HLW storage period will also change.
+As mentioned previously, contingency tables are not restricted to a two-way formulation.  
+Three dimensional tables may also be constructed from the same
+fuel cycle realizations.  In an effort to capture co-variant system effects, this paper 
+examines two independent parameters ($x$ and $y$) and one response ($R$).  For instance, 
+if the SE of plutonium coming from the FR changes, it is expected that the relative benefit 
+from the HLW storage period will also change.
 Thus the repository capacity must be expressed as a combination of these two parameters together.
 
 \input{figs/ct3d_example}
@@ -364,7 +376,7 @@ Conversely, zero entropy implies a fully ordered system.  In contingency tables,
 non-zero entry.  All independent input parameters $x$ should have maximum entropy since they are randomly sampled.
 
 To calculate the entropy, the probability table corresponding to the CT is needed.  If there are $N$ total Monte Carlo runs, then any bin in
-the contingency table may be represented by the matrix element $N_{ab}$.  Here $a$ indexes the number of response bins $A$, while $b$
+the contingency table may be represented by the matrix element $N_{ab}$.  Here $a$ indexes the number of $R$ response bins $A$, while $b$
 indexes the number of $x$ input parameter bins $B$.  For the three dimensional table, $N_{abc}$ represents a matrix element where $c$ indexes the number of $y$
 input parameter bins $C$.  Thus the probability table may be defined such that:
 \begin{equation} p_{ab} = \frac{N_{ab}}{N} \, \forall a, b\in A\times B\end{equation}
@@ -416,8 +428,9 @@ This figure is based on a similar one presented in \cite{Press2007}.
 \end{center}
 \label{entropy_info_relations}
 \end{figure}
-As a physical example, consider the DNA sequences of a parent and a child.  The sequence of the child ($R$) is some unknown function of the DNA of the parent ($x$).
-$I(R,x)$ then measures the overlap of the sequences, in entropy space.
+As a physical example, consider the DNA sequences of a parent and a child.  The sequence of the child ($R$) 
+is some unknown function of the DNA of the parent ($x$).
+$I(R,x)$ then measures the mutual dependence of the sequences, in entropy space.
 
 The mutual information indicates how much of a response is determined by a particular input.
 As an illustration, FR UF separations might account for half of the variation in fuel cycle costs.  However, FR burnup may also
@@ -433,15 +446,22 @@ On the other hand, the maximum value of the mutual information depends on the st
 \subsubsection{Uncertainty}
 \label{sec:uncertainty}
 
-The uncertainty $U$ is the first metric to be used to rank the relative value of input parameters to a response.  Informally, the uncertainty is defined
-as the mutual information divided by the entropy.
+The uncertainty $U$ is the first metric to be used to rank the relative value of input 
+parameters to a response.  Informally, the uncertainty is defined
+as the mutual information divided by the entropy because it represents the fraction of the 
+response which is predictable given an input.
 
-More exactly, the \emph{uncertainty coefficients} are used to rank inputs.  They are specified with the conditional notation $U(x|R)$.  Such coefficients are calculated via:
+More exactly, the \emph{uncertainty coefficients} are used to rank inputs.  They are specified with the 
+conditional notation $U(x|R)$.  Such coefficients are calculated via \cite{Yao2003}:
 \begin{equation}
 U(x|R) = \frac{I(R,x)}{H(x)}
 \label{eq:U_x_R}
 \end{equation}
-In essence, equation \ref{eq:U_x_R} measures the extent to which knowing the input $x$ is the same as knowing the response $R$.  As such, $U(x|R)$ has the following properties:
+\begin{equation}
+U(R|x) = \frac{I(R,x)}{H(R)}
+\label{eq:U_R_x}
+\end{equation}
+Equation \ref{eq:U_x_R} measures the extent to which knowing the input $x$ is the same as knowing the response $R$.  As such, $U(x|R)$ has the following properties:
 \begin{enumerate}
     \item Defined on the range $[0, 1]$.
     \item $U(x|R) = 0$ implies that $I(R,x) = 0$, which indicates that the parameter
@@ -455,6 +475,8 @@ It is important to note that both $H(R)$ and $H(x)$ are the same for all $x$.  T
 U(x|R) = \frac{H(R)}{H(x)} U(R|x)
 \label{uncertainty_scale}
 \end{equation}
+This scaling factor is obtained by combining equations \ref{eq:U_x_R} \& \ref{eq:U_R_x} via the mutual 
+information term.
 
 Moreover, a related uncertainty coefficient may be calculated for the three dimensional case of two inputs to one
 response.  $U(x,y|R)$ is computed from:
