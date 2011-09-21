@@ -147,7 +147,7 @@ This methodology may be seen graphically in Figure \ref{mcmethod}.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.70]{figs/MonteCarloMethodology.eps}
+\includegraphics[scale=0.70]{MonteCarloMethodology.eps}
 \caption{Monte Carlo Methodology \& Analysis Diagram}
 \label{mcmethod}
 \end{center}
@@ -219,7 +219,7 @@ constraints.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.50]{figs/LWR_FR.eps}
+\includegraphics[scale=0.50]{LWR_FR.eps}
 \caption{LWR-FR Symbiotic Fuel Cycle Scenario}
 \label{lwr_fr_fc}
 \end{center}
@@ -371,7 +371,7 @@ Table \ref{ct2d_example} displays a $4\times 3$ fuel cycle CT from the data set 
 the Monte Carlo loop.   This example compares the FR plutonium separation efficiency (SE) to the 
 repository capacity, irrespective of what the values the other 29 system inputs take on.
 
-\input{figs/ct2d_example}
+\input{ct2d_example}
 
 The zero entry in Table \ref{ct2d_example} implies that for low plutonium separation efficiencies a 
 high repository capacity is impossible.  Additionally, some regions arise rarely, assumedly only for 
@@ -388,7 +388,7 @@ if the SE of plutonium coming from the FR changes, it is expected that the relat
 from the HLW storage period will also change.
 Thus the repository capacity must be expressed as a combination of these two parameters together.
 
-\input{figs/ct3d_example}
+\input{ct3d_example}
 
 Table \ref{ct3d_example} has a $4\times 3\times 3$ bin structure relating the $R$ response to $x$ \& $y$ inputs.  Here, it is essential to note that every $y$ bin
 is itself a 2D contingency table for $x$ to $R$.
@@ -609,7 +609,7 @@ chamber remains evacuated.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.50]{figs/PistonCT.eps}
+\includegraphics[scale=0.50]{PistonCT.eps}
 \caption{Abstract Piston with Representative Partitions: Blue Line for 2 Bins, Red Line for 5 Bins.}
 \label{piston_ct}
 \end{center}
@@ -633,7 +633,7 @@ Such behavior is consistent with other Monte Carlo techniques \cite{Press2007}.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.70]{figs/U_xy_R_for_FR_SE_PU_and_LWR_SE_NP_to_Capacity_rank.eps}
+\includegraphics[scale=0.70]{U_xy_R_for_FR_SE_PU_and_LWR_SE_NP_to_Capacity_rank.eps}
 \caption{Dynamic Effects of Binning Structure Example: $U(x,y|R)$ for the parameter pair (\texttt{FR\_SE\_PU}, \texttt{LWR\_SE\_NP}) to repository capacity.}
 \label{dynamic_effects}
 \end{center}
@@ -679,7 +679,7 @@ Determining the impact of a single input parameter on a nuclear fuel cycle outco
 the uncertainty coefficient $U(x|R)$ measures the importance of $x$.  Table \ref{U_x_R_for_Capacity_with_IJK7} displays the input parameters, ranked by
 uncertainty, for the repository capacity response.
 
-\input{figs/U_x_R_for_Capacity_with_IJK7}
+\input{U_x_R_for_Capacity_with_IJK7}
 
 As expected, the fast reactor plutonium separation efficiency is shown to be the driver of the system.  How much more important this parameter is that the
 other inputs may be quantitatively stated by taking the ratio of the two $U(x|R)$.  For instance, \texttt{LWR\_SE\_AM}, the parameter at rank 7,
@@ -715,7 +715,7 @@ the 2D case.  Second, covariance effects between the two inputs are measured.
 \subsubsection{3D Sensitivity}
 \label{sec:3D_sensitivity}
 
-%\input{figs/U_xy_R_for_Capacity_with_IJK7}
+%\input{U_xy_R_for_Capacity_with_IJK7}
 The three dimensional expression of the uncertainty coefficient, $U(x,y|R)$, is used to capture the strength of association from a parameter pair to the response.
 Therefore a table similar to Table \ref{U_x_R_for_Capacity_with_IJK7} would show the rankings of all 435 parameter pairs
 to the repository capacity.
@@ -737,7 +737,7 @@ due to the fact that inputs were still being measured against a response.
 How one input affects the impact of another input is a critical issue to the system designer.  For example, one would want to know that the gains made by
 changing the \texttt{FR\_SE\_PU} would thrust another, previously unimportant, system design parameter to the fore.  As a second example, if \texttt{HLW\_Storage\_Time} and \texttt{LWR\_UF\_Storage\_Time} are seen to have a strong joint effect, it may mean that pursuing a strategy of extensive pre-emplacement storage would require lengthier pre-separation used fuel storage to be most effective.
 
-\input{figs/cv_x_y_R_for_Capacity_with_IJK7}
+\input{cv_x_y_R_for_Capacity_with_IJK7}
 
 These sensitivities of sensitivities are measured in terms of the coefficient of variation $c_v$, as described in section \ref{sec:sensitivity_of_sensitivity_metrics}.
 Table \ref{cv_x_y_R_for_Capacity_with_IJK7} shows the top 10\% of 435 ranked parameter pairs for $c_v(x|y|R)$ for the repository capacity.
@@ -769,7 +769,7 @@ in tandem.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.70]{figs/FR_SE_AM_and_FR_SE_PU_Decay_Heat.eps}
+\includegraphics[scale=0.70]{FR_SE_AM_and_FR_SE_PU_Decay_Heat.eps}
 \caption{Total \& Top Contibutor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{FR\_SE\_AM}, \texttt{FR\_SE\_PU}).}
 \label{am_pu_decay_heat}
 \end{center}
@@ -787,7 +787,7 @@ The switch between Am/Pu and the two order of magnitude range in the decay heat 
 The interplay between the FR americium SE and the FR transuranic conversion ratio exhibits a covariance
 to the repository capacity.  As seen in Table \ref{cv_x_y_R_for_Capacity_with_IJK7}, these two inputs display a relatively high sensitivity of sensitivity.  The covariance effect here is confirmed by examining Table \ref{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}.
 
-\input{figs/FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
+\input{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
 
 Table \ref{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop} displays the probability table, which is a normalized representation of the contingency table.
 This table shows that repository capacity increases with increasing \texttt{FR\_SE\_AM}, a result consistent
@@ -814,7 +814,7 @@ inputs yield middling capacities.  Additionally, the entropy increases with incr
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.70]{figs/FR_SE_PU_and_HLW_Storage_Time_Decay_Heat.eps}
+\includegraphics[scale=0.70]{FR_SE_PU_and_HLW_Storage_Time_Decay_Heat.eps}
 \caption{Total \& Top Contibutor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{HLW\_Storage\_Time}, \texttt{FR\_SE\_PU}).}
 \label{hlw_pu_decay_heat}
 \end{center}
@@ -841,8 +841,154 @@ This tool can aid system designers by helping them perceive which design variabl
 
 The approach described here can be generalized to include boolean as well as continuous inputs.  For example, if the technology ultimately chosen for the permanent repository is unknown, a boolean flag can allow each stochastic realization to follow one of several options.  The outcome, still repository capacity, would now be conditioned on this boolean input as well.  It would illuminate system design parameters that will be important regardless of technology ultimately chosen, those that have strongly technology-dependent effects, and those that are unimportant to determining capacity regardless of technology.  In view of the uncertainties in the direction taken by nuclear energy in the future, coupled with the need to develop technologies now that can support or even enable these outcomes, this capability, if developed, could provide invaluable guidance.
 
-\bibliography{library.bib}{}
+%\bibliography{library.bib}{}
 \bibliographystyle{plain}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Ahlswede1993}
+R.~Ahlswede and I.~Csiszar.
+\newblock {Common randomness in information theory and cryptography. I. Secret
+  sharing}.
+\newblock {\em IEEE Transactions on Information Theory}, 39(4):1121--1132, July
+  1993.
+
+\bibitem{Barratt2004}
+J.G. Barratt and E.A. Schneider.
+\newblock {Monte Carlo Uncertainty Analysis of a Transmuting Fuel Cycle}.
+\newblock {\em TRANSACTIONS-AMERICAN NUCLEAR SOCIETY}, 90:249--250, 2004.
+
+\bibitem{Boltzmann1872}
+Ludwig Boltzmann.
+\newblock {Weitere studien \"{u}ber das w\"{a}rmegleichgewicht unter
+  gasmolek\"{u}len}.
+\newblock {\em Sitzungsberichte Akademie der Wissenschaften}, 66:275--370,
+  1872.
+
+\bibitem{Everitt1992}
+Brian~S. Everitt.
+\newblock {\em {ANALYSIS OF CONTINGENCY TABLES}}.
+\newblock Chapman \& Hall, 1992.
+
+\bibitem{Jacobson2009}
+Jacob~J Jacobson, Gretchen~E Matthern, Steven~J Piet, and David~E Shropshire.
+\newblock {VISION : Verifiable Fuel Cycle Simulation Model Advances in Nuclear
+  Fuel Management}.
+\newblock {\em Management}, 2009.
+
+\bibitem{Li2009b}
+J~Li, A~M Scopatz, M~S Yim, and E~A Schneider.
+\newblock {The Sensitivity of Fuel Cycle Performance to Separation Efficiency}.
+\newblock {\em Nuclear Engineering and Design}, 240:511--523, 2009.
+
+\bibitem{Li2009}
+Jun Li, Man-sung Yim, and D~N McNelis.
+\newblock {An Efficient and Comprehensive Model for Fuel Cycle System
+  Performance Evaluation}.
+\newblock In {\em GLOBAL 2009}, Paris, France, 2009.
+
+\bibitem{Li2010a}
+Jun Li, Man-sung Yim, and D~N McNelis.
+\newblock {A Simplified Methodology for Nuclear Waste Repository Thermal
+  Analysis}.
+\newblock {\em Annals of Nuclear Energy}, 2010.
+
+\bibitem{Liu2006}
+Huibin Liu, Wei Chen, and Agus Sudjianto.
+\newblock {Relative Entropy Based Method for Probabilistic Sensitivity Analysis
+  in Engineering Design}.
+\newblock {\em Journal of Mechanical Design}, 128(2):326, 2006.
+
+\bibitem{Manning1999}
+Christopher~D. Manning and Hinrich Schuetze.
+\newblock {\em {Foundations of Statistical Natural Language Processing}}.
+\newblock The MIT Press, 1999.
+
+\bibitem{NEA-5990}
+OECD.
+\newblock {Advanced Nuclear Fuel Cycles and Radioactive Waste Management -
+  NEA-5990}.
+\newblock Technical report, Nuclear Energy Agency, 2006.
+
+\bibitem{GENIUS1}
+Kyle~Matthew Oliver, Paul P H~Wilson {andc Arnaud Reveillere}, Tae~Wook Ahn,
+  Kerry Dunn, Katy Huff, and Royal Elmore.
+\newblock {Studying international fuel cycle robustness with the GENIUSv2
+  discrete facilities/materials fuel cycle systems analysis tool}.
+\newblock In {\em GLOBAL 2009 - Accepted for publication}, 2009.
+
+\bibitem{Pearson1904}
+Karl Pearson.
+\newblock {\em {On the theory of contingency and its relation to association
+  and normal correlation.}}
+\newblock Dulau and Co., London, 1904.
+
+\bibitem{Press2007}
+William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
+\newblock {\em {Numerical Recipes 3rd Edition: The Art of Scientific
+  Computing}}.
+\newblock Cambridge University Press, 2007.
+
+\bibitem{Rashevsky1955}
+N.~Rashevsky.
+\newblock {Life, information theory, and topology}.
+\newblock {\em The Bulletin of Mathematical Biophysics}, 17(3):229--235,
+  September 1955.
+
+\bibitem{Scopatz2010b}
+Anthony Scopatz, Jun Li, Man-sung Yim, and Erich Schneider.
+\newblock {Nuclear Fuel Cycle Sensitivity to the Variation of Physical
+  Parameters}.
+\newblock In {\em PHYSOR 2010}, Pittsburgh, PA, USA, 2010.
+
+\bibitem{Scopatz2009}
+Anthony~M. Scopatz and Erich~a. Schneider.
+\newblock {A new method for rapid computation of transient fuel cycle material
+  balances}.
+\newblock {\em Nuclear Engineering and Design}, 239(10):2169--2184, October
+  2009.
+
+\bibitem{Scopatz2009c}
+Author Scopatz, Jun Li, Man-sung Yim, and Erich Schneider.
+\newblock {A Systemic Evaluation of the Sensitivity of Fuel Cycle}.
+\newblock In {\em GLOBAL 2009}, Paris, France, 2009.
+
+\bibitem{Shannon1948}
+C~E Shannon.
+\newblock {A Mathematical Theory of Communication}.
+\newblock {\em M.D. computing : computers in medical practice}, 14(4):306--17,
+  1948.
+
+\bibitem{Shropshire2009}
+D~E Shropshire, K~A Williams, E~A Hoffman, J~D Smith, D~J Hebditch, J~J
+  Jacobson, J~D Morton, A~M Phillips, and J~P Taylor.
+\newblock {Advanced Fuel Cycle Economic Analysis of Symbiotic Light-Water
+  Reactor and Fast Burner Reactor Systems - INL/EXT-09-15254}.
+\newblock Technical Report January, Idaho National Labortory, Idaho Falls, ID,
+  USA, 2009.
+
+\bibitem{Watanabe1960}
+Satosi Watanabe.
+\newblock {Information Theoretical Analysis of Multivariate Correlation}.
+\newblock {\em IBM Journal of Research and Development}, 4(1):66--82, January
+  1960.
+
+\bibitem{Yao2003}
+YY~Yao and S.~Regina.
+\newblock {6 Information-Theoretic Measures for Knowledge Discovery and Data
+  Mining}.
+\newblock {\em Entropy measures, maximum entropy principle and emerging
+  applications}, page 115, 2003.
+
+\bibitem{Yockey2011}
+Hubert~P. Yockey.
+\newblock {\em {Information Theory, Evolution, and The Origin of Life}}.
+\newblock Cambridge University Press, 2011.
+
+\end{thebibliography}
+
+
 
 \end{document}
 
