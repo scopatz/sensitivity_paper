@@ -1,30 +1,87 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[preprint,12pt]{elsarticle}
+%\documentclass[a4paper, 12pt]{article}
+
+
 \usepackage{a4wide}
 \usepackage{epsfig}
 \usepackage{color}
 \usepackage{verbatim}
-\usepackage{cite}
+\usepackage{setspace}
+%\usepackage{cite}
+
+\doublespacing
+
+
+\usepackage{natbib}
+%\bibliographystyle{plain}
+\bibliographystyle{model2-names}
+
+\journal{Nuclear Technology}
 
 %General Short-Cut Commands
 \newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
 \newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
 \newcommand{\nuc}[2]{\superscript{#2}{#1}}
 
-%Commands for this document...
+
+% Start this document...
 \begin{document}
-\begin{center}
-Entropy-Based Nuclear Fuel Cycle Sensitivities and Covariances\\
-\vspace{10mm}
-Anthony Michael Scopatz, Erich A. Schneider\\
-The University of Texas at Austin\\
-\vspace{2mm}
-Jun Li\\
-University of North Carolina\\
-\vspace{2mm}
-Man-Sung Yim\\
-Korea Advanced Institute of Science and Technology\\
-\end{center}
-\vspace{5mm}
+
+% Article commands
+\begin{frontmatter}
+\title{Entropy-Based Nuclear Fuel Cycle Sensitivities and Covariances}%\tnoteref{t1}}
+\tnotetext[t1]{Number of Pages: 41, Number of Tables: 7, Number of Figures: 7}
+
+\author[ut]{Anthony M. Scopatz\corref{cor1}}
+\ead{scopatz@mail.utexas.edu}
+\cortext[cor1]{Corresponding author}
+
+\author[ut]{Erich A. Schneider}
+
+\author[unc]{Jun Li}
+
+\author[kaist]{Man-Sung Yim}
+
+\address[ut]{The University of Texas at Austin, Mechanical Engineering, 1 University Station C2200, Austin, Texas, USA, 78712}
+
+\address[unc]{University of North Carolina, Chapel Hill, Nuclear Engineering, Chapel Hill, NC}
+
+\address[kaist]{KAIST Department of Nuclear \& Quantum Engineering, 291 Daehak-roq, Yuseong-gu, Daejeon 305-701, Republic of Korea}
+
+
+% Text of abstract
+\begin{abstract}
+Technology development and deployment decisions are justified by weighing their costs
+against the expected benefits.  Multiple Nuclear Fuel Cycle (NFC) simulation models
+have been devised, some with the aim of quantifying cycle-wide sensitivities to variations from
+base-case scenarios.  Base-case sensitivity studies often perturb only one parameter at a time,
+and only in the region around the initial value.  This paper details a sensitivity study methodology
+which applies entropy-based statistical methods of information theory to describe outcomes produced by
+an NFC model.  This supersedes past efforts at sensitivity and uncertainty analysis by allowing
+a much larger space to be explored.  Here, thirty independent fuel cycle parameters for a Fast Reactor-Light
+Water Reactor hybrid scenario are varied simultaneously and stochastically.  This fuel cycle schema was chosen
+as a well-known, sufficiently complex model; the underlying statistical methods could be applied to any cycle.
+This study uses the uncertainty coefficient computed from contingency tables to represent the
+sensitivity of a technology-defining input to the response.  The response of interest here was
+taken to be the deep geologic repository capacity for a given realization of fuel cycle inputs.
+After computing the uncertainty coefficients, the inputs themselves are then sorted based on
+decreasing sensitivities.  Fast reactor used fuel plutonium separations were
+found to be most important to the cycle.  Furthermore, to represent input covariances (the effect of one
+input on the sensitivity of a second input to the response) a new measure is defined on three dimensional
+contingency tables.  This metric is the coefficient of variation of uncertainty coefficient of two
+dimensional slices of the original table.  Sorting by this sensitivity of sensitivity metric,
+the input pair of fast reactor americium separations together with high-level waste storage time
+were found to have the largest joint effect on the repository capacity.
+\end{abstract}
+
+%% keywords here, in the form: keyword \sep keyword
+\begin{keyword}
+nuclear fuel cycle \sep entropy-based sensitivity \sep essential physics applications
+\end{keyword}
+
+\end{frontmatter}
+
+
 
 \section{Introduction}
 \label{sec:intro}
@@ -40,7 +97,7 @@ of input parameters to the ultimate design goals.
 
 In general, development and deployment decisions are justified by weighing their costs 
 against the expected benefits, monetary, monetizable or otherwise, that follow when they 
-come to fruition.  To that end, multiple NFC simulation models  \cite{Jacobson2009,GENIUS1} 
+come to fruition.  To that end, multiple NFC simulation models  \cite{Jacobson2009, GENIUS1} 
 have been devised.  One aim of these models is enable these hypothetical outcomes to be quantified.  
 Two major challenges associated with this goal are the uncertainties in the deployment and performance 
 of other NFC technologies and the nuclear energy industry as a whole, and the complex 
@@ -307,7 +364,9 @@ output parameters are also bounded.  The spread of the output parameters due to 
 determines the relative importance of that input.
 
 
-\input{param_def.tex}
+%\input{param_def.tex}
+%\include{param_def.tex}
+\include{param_def}
 
 
 \section{Contingency Tables}
@@ -371,7 +430,8 @@ Table \ref{ct2d_example} displays a $4\times 3$ fuel cycle CT from the data set 
 the Monte Carlo loop.   This example compares the FR plutonium separation efficiency (SE) to the 
 repository capacity, irrespective of what the values the other 29 system inputs take on.
 
-\input{ct2d_example}
+%\input{ct2d_example}
+\include{ct2d_example}
 
 The zero entry in Table \ref{ct2d_example} implies that for low plutonium separation efficiencies a 
 high repository capacity is impossible.  Additionally, some regions arise rarely, assumedly only for 
@@ -388,7 +448,8 @@ if the SE of plutonium coming from the FR changes, it is expected that the relat
 from the HLW storage period will also change.
 Thus the repository capacity must be expressed as a combination of these two parameters together.
 
-\input{ct3d_example}
+%\input{ct3d_example}
+\include{ct3d_example}
 
 Table \ref{ct3d_example} has a $4\times 3\times 3$ bin structure relating the $R$ response to $x$ \& $y$ inputs.  Here, it is essential to note that every $y$ bin
 is itself a 2D contingency table for $x$ to $R$.
@@ -679,7 +740,8 @@ Determining the impact of a single input parameter on a nuclear fuel cycle outco
 the uncertainty coefficient $U(x|R)$ measures the importance of $x$.  Table \ref{U_x_R_for_Capacity_with_IJK7} displays the input parameters, ranked by
 uncertainty, for the repository capacity response.
 
-\input{U_x_R_for_Capacity_with_IJK7}
+%\input{U_x_R_for_Capacity_with_IJK7}
+\include{U_x_R_for_Capacity_with_IJK7}
 
 As expected, the fast reactor plutonium separation efficiency is shown to be the driver of the system.  How much more important this parameter is that the
 other inputs may be quantitatively stated by taking the ratio of the two $U(x|R)$.  For instance, \texttt{LWR\_SE\_AM}, the parameter at rank 7,
@@ -737,10 +799,11 @@ due to the fact that inputs were still being measured against a response.
 How one input affects the impact of another input is a critical issue to the system designer.  For example, one would want to know that the gains made by
 changing the \texttt{FR\_SE\_PU} would thrust another, previously unimportant, system design parameter to the fore.  As a second example, if \texttt{HLW\_Storage\_Time} and \texttt{LWR\_UF\_Storage\_Time} are seen to have a strong joint effect, it may mean that pursuing a strategy of extensive pre-emplacement storage would require lengthier pre-separation used fuel storage to be most effective.
 
-\input{cv_x_y_R_for_Capacity_with_IJK7}
+%\input{cv_x_y_R_for_Capacity_with_IJK7}
+\include{cv_x_y_R_for_Capacity_with_IJK7}
 
 These sensitivities of sensitivities are measured in terms of the coefficient of variation $c_v$, as described in section \ref{sec:sensitivity_of_sensitivity_metrics}.
-Table \ref{cv_x_y_R_for_Capacity_with_IJK7} shows the top 10\% of 435 ranked parameter pairs for $c_v(x|y|R)$ for the repository capacity.
+Table \ref{cv_x_y_R_for_Capacity_with_IJK7} shows the top ranked parameter pairs for $c_v(x|y|R)$ for the repository capacity.
 As expected, the top parameters from before (\texttt{FR\_SE\_PU}, \texttt{FR\_SE\_AM}, \& \texttt{HLW\_Storage\_Time}) all exhibit large effects on
 the impact of the others.
 
@@ -787,7 +850,8 @@ The switch between Am/Pu and the two order of magnitude range in the decay heat 
 The interplay between the FR americium SE and the FR transuranic conversion ratio exhibits a covariance
 to the repository capacity.  As seen in Table \ref{cv_x_y_R_for_Capacity_with_IJK7}, these two inputs display a relatively high sensitivity of sensitivity.  The covariance effect here is confirmed by examining Table \ref{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}.
 
-\input{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
+%\input{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
+\include{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
 
 Table \ref{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop} displays the probability table, which is a normalized representation of the contingency table.
 This table shows that repository capacity increases with increasing \texttt{FR\_SE\_AM}, a result consistent
@@ -842,9 +906,10 @@ This tool can aid system designers by helping them perceive which design variabl
 The approach described here can be generalized to include boolean as well as continuous inputs.  For example, if the technology ultimately chosen for the permanent repository is unknown, a boolean flag can allow each stochastic realization to follow one of several options.  The outcome, still repository capacity, would now be conditioned on this boolean input as well.  It would illuminate system design parameters that will be important regardless of technology ultimately chosen, those that have strongly technology-dependent effects, and those that are unimportant to determining capacity regardless of technology.  In view of the uncertainties in the direction taken by nuclear energy in the future, coupled with the need to develop technologies now that can support or even enable these outcomes, this capability, if developed, could provide invaluable guidance.
 
 %\bibliography{library.bib}{}
-\bibliographystyle{plain}
 
 
+\begin{comment}
+\end{comment}
 \begin{thebibliography}{99}
 
 \bibitem{Ahlswede1993}
