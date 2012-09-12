@@ -367,13 +367,17 @@ In the case where a set of input parameters is chosen such that the cycle is not
 internal variables inside of the models are adjusted to a point such that the fuel cycle is feasible.
 For example, suppose a vector of inputs specifies a high value of the LWR burnup as well as other default
 internal parameters.  The reactor model will adjust the non-leakage probability, the initial enrichment
-of the fresh fuel, and the discharge fluence until these are tuned such that the stochastic burnup value
-is obtained.
+of the fresh fuel, and the discharge fluence (as a surrogate for cycle length) until 
+these are tuned such that the stochastic burnup value is obtained.  Since this 
+is an infinite lattice model, the number of fuel regions remains constant.
 
 Thus every fuel cycle realization is its own distinct cycle, tuned for the stochastic parameters selected.
 However, by bounding the input parameters and comparing many realizations, this study shows that the
 output parameters are also bounded.  The spread of the output parameters due to changes in the inputs
-determines the relative importance of that input.
+determines the relative importance of that input.  Note that the min and max bounds
+in Table \ref{param_def} do affect the sensitivity metrics that are calculated.
+To mitigate this problem, the bounds for each parameter are taken to be 
+large enough that expanding the domain size further does not affect the sensitivities.
 
 
 %\input{param_def.tex}
