@@ -142,6 +142,18 @@ measure supports fuel cycle analysis and decision-making by identifying inputs (
 parent technologies) that can, if also altered, augment or reduce the effect of the decision
 being considered.
 
+Other general uncertainty quantification techniques for handling large systems 
+exist, such as surrogate model strategies.  For example, stochastic collocation 
+\cite{Mathelin03} using polynomial chaos replaces the Monte Carlo 
+process used here with a model of the underlying function.  This method is extremely
+useful, especically when the derivatives of the true function are needed and 
+for small numbers of indpendent variables being modeled.  By its very nature though, 
+surrogate models make assumptions about the underlying function form.  This is 
+precisely what the entropy-based methods here avoid.  Additionally, since functional
+dervitavives are not needed, a major benefit of stochastic collocation would go
+unused.  Furthermore, due to the large number of fuel cycle parameters possible
+the entroy scale well in a fashion that the surrogate models considered do not.
+
 The remainder of this paper is organized as follows.  \S \ref{sec:it-overview} provides a brief overview 
 of the field of information theory and its underlying metrics, which are relied on heavily in this paper.
 \S \ref{sec:methodology} presents an algorithmic summary of the
@@ -176,7 +188,7 @@ and Technology have progressed to problems of greater complexity such statistica
 have found many applications.
 
 In Biology, particularly in the sub-field of bioinformatics, information theory plays a 
-central role \cite{Rashevsky1955, Yockey2011}.  The advent of computers has enabled new 
+central role \cite{Rashevsky1955,Yockey2011}.  The advent of computers has enabled new 
 analysis tools in Linguistics, which often use entropy-based measures \cite{Manning1999}. 
 Moreover, information theory continues to have broad reaching applications within Cryptography
 \cite{Ahlswede1993}.
@@ -928,7 +940,12 @@ Kyle~Matthew Oliver, Paul P H~Wilson {andc Arnaud Reveillere}, Tae~Wook Ahn,
   Kerry Dunn, Katy Huff, and Royal Elmore.
 \newblock {Studying international fuel cycle robustness with the GENIUSv2
   discrete facilities/materials fuel cycle systems analysis tool}.
-\newblock In {\em GLOBAL 2009 - Accepted for publication}, 2009.
+\newblock In {\em GLOBAL 2009}, 2009.
+
+\bibitem{Mathelin03}
+Lionel Mathelin and M. Yousuff Hussaini.
+\newblock {A Stochastic Collocation Algorithm for Uncertainty Analysis}.
+\newblock {\em NASA}, 2003--212153, 2003.
 
 \bibitem{Shannon1948}
 C~E Shannon.
