@@ -147,23 +147,26 @@ Other general uncertainty quantification techniques for handling large systems
 exist, such as surrogate model strategies.  For example, stochastic collocation 
 \cite{Mathelin03} using polynomial chaos replaces the Monte Carlo 
 process used here with a model of the underlying function.  This method is extremely
-useful, especically when the derivatives of the true function are needed and 
-for small numbers of indpendent variables being modeled.  By its very nature though, 
+useful, especially when the derivatives of the true function are needed and 
+for small numbers of independent variables being modeled.  By its very nature though, 
 surrogate models make assumptions about the underlying function form.  This is 
 precisely what the entropy-based methods here avoid.  Additionally, since functional
-dervitavives are not needed, a major benefit of stochastic collocation would go
+derivatives are not needed, a major benefit of stochastic collocation would go
 unused.  Furthermore, due to the large number of fuel cycle parameters possible
-the entroy scale well in a fashion that the surrogate models considered do not.
+the entropy scale well in a fashion that the surrogate models considered do not.
 
 The remainder of this paper is organized as follows.  \S \ref{sec:it-overview} provides a brief overview 
 of the field of information theory and its underlying metrics, which are relied on heavily in this paper.
 \S \ref{sec:methodology} presents an algorithmic summary of the
-methodology employed to carry out the fuel cycle study.  \S \ref{sec:nfcsim} describes the fuel cycle 
+methodology employed to carry out the fuel cycle study.  \S \ref{sec:nfcsim} 
+describes the fuel cycle 
 simulations and method for sampling the input parameters to be varied, while \S \ref{sec:ct} 
 presents the theoretical background underpinning the entropy-based
 statistical measures.  \S \ref{sec:results} provides results for the statistical measures applied to the scenario
-space outlined in \S \ref{sec:nfcsim} and offers several case studies that illustrate the interpretation
-of the statistical outcomes.  \S \ref{sec:conclusion} concludes with options for future work.
+space outlined in \S \ref{sec:nfcsim} and offers several case studies that 
+illustrate the interpretation
+of the statistical outcomes.  \S \ref{sec:conclusion} concludes with options 
+for future work.
 
 
 
@@ -274,7 +277,7 @@ static spectra are a reasonable approximations.
 The repository thermal analysis model was developed based on the
 analytical solution of a thermal conduction model for the presence of
 loaded nuclear waste in a geologic repository \cite{Li2010a}. The
-repository is modeled as a homogenous hosting medium with constant
+repository is modeled as a homogeneous hosting medium with constant
 properties. The nuclear waste packages were assumed to be loaded into parallel
 waste emplacement drifts. Each drift is treated as
 an infinite line heat source. The temperature increase at the critical
@@ -488,7 +491,7 @@ the strength of association between input parameters and responses in contingenc
 This allows the system designer to determine the most `important' input parameters to this response.  For example, one
 could quantitatively state the degree of importance of FR plutonium SE relative to the repository drift diameter in the sense of how each affects the repository capacity.
 
-Note that these are fundementally distinct from the Monte Carlo statistics 
+Note that these are fundamentally distinct from the Monte Carlo statistics 
 which may be computed. For the input parameters, the standard deviation $\sigma(x)$
 is determined by the sampling function for $x$. (Inputs sampled via a 
 linearly-uniform probability distribution have the well known standard deviation
@@ -499,7 +502,7 @@ the distribution of $R$ summed over all $x$, is the same.  For these tables
 $\sigma(R)\approx 5.6\times 10^6$ where $R$ is the repository capacity.
 
 Because $\sigma(x)$ and $\sigma(R)$ are both independent of $R(x)$, a
-more approriate statistic would be the conditional variance $\sigma^2(x|R)$.  
+more appropriate statistic would be the conditional variance $\sigma^2(x|R)$.  
 However, this is not a traditional stochastic metric.  Instead the entropy-based
 measures seen below - for which $R(x)$ need not be explicitly known - take the 
 place of such a conditional variance.
@@ -661,7 +664,7 @@ This measure has the following properties:
     \item $c_v(x|y|R) = 0$ implies that both $\sigma = 0$, which indicates that $U(x|R)$
         shows no dependence on $y$.  Thus there are no covariant effects observed.
     \item $c_v(x|y|R) = 1$ indicates that both $\sigma = \mu$.  This connotes
-        that the value of $x$ soley governs the response $R$ from $y$.
+        that the value of $x$ solely governs the response $R$ from $y$.
 \end{enumerate}
 
 The difference in ranking parameter pairs using $U(x,y|R)$ versus $c_v(x|y|R)$ is that the uncertainty 
@@ -719,7 +722,7 @@ dotted line represents partitioning the piston chamber into two distinct bins.  
 since this is where the large majority of the fluid (yellow dots) falls.  
 
 The red dotted lines in Figure \ref{piston_ct} represent the same chamber partitioned into five bins.  The left most red partition runs through the
-densely populated region, adding information about the distribution that was not available under the more corasely-binned structure.
+densely populated region, adding information about the distribution that was not available under the more coarsely-binned structure.
 
 From this one might conclude that only an infinite number of partitions and bins would converge 
 to the `true' value of the entropy.  However, this is not necessary for contingency tables.  
@@ -872,7 +875,7 @@ in tandem.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=0.70]{FR_SE_AM_and_FR_SE_PU_Decay_Heat.eps}
-\caption{Total \& Top Contibutor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{FR\_SE\_AM}, \texttt{FR\_SE\_PU}).}
+\caption{Total \& Top Contributor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{FR\_SE\_AM}, \texttt{FR\_SE\_PU}).}
 \label{am_pu_decay_heat}
 \end{center}
 \end{figure}
@@ -911,20 +914,20 @@ fixed-size repository decreases.
 \label{sec:hlw_pu_covariance}
 
 The top two inputs from the sensitivity study, \texttt{FR\_SE\_PU} and \texttt{HLW\_Storage\_Time}, appear to exert a strong joint effect on the outcome.  According to Table \ref{cv_x_y_R_for_Capacity_with_IJK7}, this input pair is ranked fifth with respect to $c_v(x|y|R)$.
-Through an examination of the the 3D contingency table, high respository capacities are only allowed when both \texttt{FR\_SE\_PU} and
+Through an examination of the the 3D contingency table, high repository capacities are only allowed when both \texttt{FR\_SE\_PU} and
 \texttt{HLW\_Storage\_Time} are high.  Similarly, low capacities occur for low values of the two inputs.  Middle values for either of the
 inputs yield middling capacities.  Additionally, the entropy increases with increasing \texttt{FR\_SE\_PU} and \texttt{HLW\_Storage\_Time}.
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=0.70]{FR_SE_PU_and_HLW_Storage_Time_Decay_Heat.eps}
-\caption{Total \& Top Contibutor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{HLW\_Storage\_Time}, \texttt{FR\_SE\_PU}).}
+\caption{Total \& Top Contributor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{HLW\_Storage\_Time}, \texttt{FR\_SE\_PU}).}
 \label{hlw_pu_decay_heat}
 \end{center}
 \end{figure}
 
 Physically, the reason for this covariance is because the HLW storage time effectively shifts the opening time of the repository.
-By having a long \texttt{HLW\_Storage\_Time}, the short- and medium-term repository tempurature limits may be avoided.
+By having a long \texttt{HLW\_Storage\_Time}, the short- and medium-term repository temperature limits may be avoided.
 Figure \ref{hlw_pu_decay_heat} displays the decay heat for the HLW and for the top elemental contributor to the decay heat as a
 function of time after emplacement in the repository.  The curves here represent the four corner cases of the input values.
 
@@ -940,9 +943,26 @@ The statistical techniques of contingency table and entropy analysis presented i
 
 The strength of association between the inputs and the outcome studied here, the capacity of a Yucca Mountain-like repository, was quantified through uncertainty coefficients.  Three-dimensional uncertainties were augmented by a coefficient of variation to determine the system response inputs acting jointly.  The latter is especially important because alternative approaches, for instance linear sensitivity analyses, can only capture the response to departures from a reference state.  This reference state is defined by the values assumed by dozens or hundreds of system inputs, each of which may be varied by system or technology designers.  It was shown that the coefficient of variation could illuminate dependencies where changes in one input have a strong effect on the system response to another.  
 
-This tool can aid system designers by helping them perceive which design variables matter.  The contingency tables represent a (coarsely-gridded) importance map for the inverse problem.  Conditioned on a specific system response, like repository capacity, the measure of the strength of response provided by the uncertainty coefficients can provide guidance to technologists optimizing design parameters in the face of uncertainty regarding the shape of the larger system.  Illuminating joint dependencies, coefficients of variation can guide iterative technology development by showing which design features must be considered together.
+This tool can aid system designers by helping them perceive which design variables 
+matter.  The contingency tables represent a (coarsely-gridded) importance map for 
+the inverse problem.  Conditioned on a specific system response, 
+like repository capacity, the measure of the strength of response provided by the uncertainty coefficients can provide guidance to technologists optimizing design parameters in the face of uncertainty regarding the shape of the larger system.  Illuminating joint dependencies, coefficients of variation can guide iterative technology development by showing which design features must be considered together.
 
-The approach described here can be generalized to include boolean as well as continuous inputs.  For example, if the technology ultimately chosen for the permanent repository is unknown, a boolean flag can allow each stochastic realization to follow one of several options.  The outcome, still repository capacity, would now be conditioned on this boolean input as well.  It would illuminate system design parameters that will be important regardless of technology ultimately chosen, those that have strongly technology-dependent effects, and those that are unimportant to determining capacity regardless of technology.  In view of the uncertainties in the direction taken by nuclear energy in the future, coupled with the need to develop technologies now that can support or even enable these outcomes, this capability, if developed, could provide invaluable guidance.
+The approach described here can be generalized to include boolean as well as 
+continuous inputs.  For example, if the technology ultimately chosen for the 
+permanent repository is unknown, a boolean flag can allow each stochastic 
+realization to follow one of several options.  The outcome, still repository 
+capacity, would now be conditioned on this boolean input as well.  Note that 
+responses to a boolean input parameters, like their categorical or continuous 
+counterparts, may be just as sensitive to the probability distribution function 
+chosen for them (Table \ref{param_def}).
+Still, boolean variables would illuminate system design parameters that will be 
+important regardless of technology ultimately chosen, those that have strongly 
+technology-dependent effects, and those that are unimportant to determining 
+capacity regardless of technology.  In view of the uncertainties in the 
+direction taken by nuclear energy in the future, coupled with the need to 
+develop technologies now that can support or even enable these outcomes, 
+this capability, if developed, could provide invaluable guidance.
 
 %\bibliography{library.bib}{}
 
