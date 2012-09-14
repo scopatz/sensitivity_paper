@@ -460,6 +460,7 @@ a vanishingly small probability.  The combination of these two restricted regime
 is largely banded down the diagonal. The statistical measures chosen for examination should capture these 
 effects.
 
+
 As mentioned previously, contingency tables are not restricted to a two-way formulation.  
 Three dimensional tables may also be constructed from the same
 fuel cycle realizations.  In an effort to capture co-variant system effects, this paper 
@@ -482,9 +483,26 @@ Since there are thirty inputs, of which two are examined, there are $_{30}C_2 = 
 \subsection{Statistical Metrics}
 \label{sec:statistical_metrics}
 
-This section describes the statistical measures used to quantify the strength of association between input parameters and responses in contingency tables.
+This section describes the entropy-based statistical measures used to quantify 
+the strength of association between input parameters and responses in contingency tables.
 This allows the system designer to determine the most `important' input parameters to this response.  For example, one
 could quantitatively state the degree of importance of FR plutonium SE relative to the repository drift diameter in the sense of how each affects the repository capacity.
+
+Note that these are fundementally distinct from the Monte Carlo statistics 
+which may be computed. For the input parameters, the standard deviation $\sigma(x)$
+is determined by the sampling function for $x$. (Inputs sampled via a 
+linearly-uniform probability distribution have the well known standard deviation
+$\sigma(x) = (x_{\max} - x_{\min})/2\sqrt(3)$.)  Furthermore, the standard deviation 
+of the response $\sigma(R)$ is the same for all inputs.  This can be seen in Tables
+\ref{ct2d_example} \& \ref{ct3d_example} where the marginal sum in right-most column, 
+the distribution of $R$ summed over all $x$, is the same.  For these tables
+$\sigma(R)\approx 5.6\times 10^6$ where $R$ is the repository capacity.
+
+Because $\sigma(x)$ and $\sigma(R)$ are both independent of $R(x)$, a
+more approriate statistic would be the conditional variance $\sigma^2(x|R)$.  
+However, this is not a traditional stochastic metric.  Instead the entropy-based
+measures seen below - for which $R(x)$ need not be explicitly known - take the 
+place of such a conditional variance.
 
 \subsubsection{Entropy}
 \label{sec:entropy}
