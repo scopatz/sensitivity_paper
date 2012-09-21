@@ -505,33 +505,6 @@ The next metric is the \emph{mutual information} $I$.
 The mutual information is defined as the overlap in the entropies of various parameters.
 Figure \ref{entropy_info_relations} displays the relationship between the various entropies and the mutual information graphically.
 This figure is based on a similar one presented in \cite{Press2007}.
-\begin{figure}
-\caption{Relationship between the Mutual Information and Entropy \cite{Press2007}}
-\begin{center}
-\setlength{\unitlength}{1.5cm}
-%\begin{picture}(9,3)(-4.5,-1.5)
-\begin{picture}(9,2)(-4.5,0.0)
-\thicklines
-\put(0,1.5){\vector(1,0){4.5}}
-\put(0,1.5){\vector(-1,0){4.5}}
-\put(-0.7,1.2){$H(x,R)$}
-
-\put(-2.25,1.0){\vector(1,0){2.25}}
-\put(-2.25,1.0){\vector(-1,0){2.25}}
-\put(-2.6,0.7){$H(x)$}
-
-\put(1.5,0.5){\vector(1,0){3}}
-\put(1.5,0.5){\vector(-1,0){3}}
-\put(1.2,0.2){$H(R)$}
-
-\put(-0.75,0){\vector(1,0){0.75}}
-\put(-0.75,0){\vector(-1,0){0.75}}
-\put(-1.2,-0.3){$I(R,x)$}
-
-\end{picture}
-\end{center}
-\label{entropy_info_relations}
-\end{figure}
 As a physical example, consider the DNA sequences of a parent and a child.  The sequence of the child ($R$) 
 is some unknown function of the DNA of the parent ($x$).
 $I(R,x)$ then measures the mutual dependence of the sequences, in entropy space.
@@ -671,14 +644,6 @@ thermodynamics demonstrates this behavior.  Take a chamber the moment after a pi
 This system is not at its highest entropy.  Most of its fluid lies in the part of the chamber that was not compressed by the piston while most of the
 chamber remains evacuated.
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.50]{PistonCT.eps}
-\caption{Abstract Piston with Representative Partitions: Blue Line for 2 Bins, Red Line for 5 Bins.}
-\label{piston_ct}
-\end{center}
-\end{figure}
-
 Now, to capture the state of the piston, impose imaginary partitions at equidistant points in the chamber.  A diagram of this is seen in Figure \ref{piston_ct}.  The blue
 dotted line represents partitioning the piston chamber into two distinct bins.  The particle distribution is heavily weighted to the leftmost bin
 since this is where the large majority of the fluid (yellow dots) falls.  
@@ -695,14 +660,6 @@ thereby giving poor statistics.
 Thus there is a balancing act between the number of bins and the number of stochastic simulation executions.  This study uses a symmetric seven bins per axis formulation.  (Two dimensional tables have $7^2=49$ bins while the three dimensional tables have
 $7^3=343$ bins.)
 Such behavior is consistent with other Monte Carlo techniques \cite{Press2007}.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.70]{U_xy_R_for_FR_SE_PU_and_LWR_SE_NP_to_Capacity_rank.eps}
-\caption{Dynamic Effects of Binning Structure Example: $U(x,y|R)$ for the parameter pair (\texttt{FR\_SE\_PU}, \texttt{LWR\_SE\_NP}) to repository capacity.}
-\label{dynamic_effects}
-\end{center}
-\end{figure}
 
 Seven bins per axis were chosen since the uncertainty rankings for moderately important parameter pairs stabilize at approximately this point.  While the choice of binning resolution is system-specific -- it depends on the dynamics of the underlying simulation model -- important parameters are always going to dominate the top ranks and non-important ones will change ranks rapidly, but randomly.  Therefore it is necessary  to
 examine the parameters which are most sensitive to the binning effects.
@@ -1142,6 +1099,72 @@ Totals & 29     & 31       & 60 \\
 
 %\input{ct3d_example}
 \include{ct3d_example}
+
+\clearpage
+
+\begin{figure}
+\caption{Relationship between the Mutual Information and Entropy \cite{Press2007}}
+\begin{center}
+\setlength{\unitlength}{1.5cm}
+%\begin{picture}(9,3)(-4.5,-1.5)
+\begin{picture}(9,2)(-4.5,0.0)
+\thicklines
+\put(0,1.5){\vector(1,0){4.5}}
+\put(0,1.5){\vector(-1,0){4.5}}
+\put(-0.7,1.2){$H(x,R)$}
+
+\put(-2.25,1.0){\vector(1,0){2.25}}
+\put(-2.25,1.0){\vector(-1,0){2.25}}
+\put(-2.6,0.7){$H(x)$}
+
+\put(1.5,0.5){\vector(1,0){3}}
+\put(1.5,0.5){\vector(-1,0){3}}
+\put(1.2,0.2){$H(R)$}
+
+\put(-0.75,0){\vector(1,0){0.75}}
+\put(-0.75,0){\vector(-1,0){0.75}}
+\put(-1.2,-0.3){$I(R,x)$}
+
+\end{picture}
+\end{center}
+\label{entropy_info_relations}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.50]{PistonCT.eps}
+\caption{Abstract Piston with Representative Partitions: Blue Line for 2 Bins, Red Line for 5 Bins.}
+\label{piston_ct}
+\end{center}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.70]{U_xy_R_for_FR_SE_PU_and_LWR_SE_NP_to_Capacity_rank.eps}
+\caption{Dynamic Effects of Binning Structure Example: $U(x,y|R)$ for the parameter pair (\texttt{FR\_SE\_PU}, \texttt{LWR\_SE\_NP}) to repository capacity.}
+\label{dynamic_effects}
+\end{center}
+\end{figure}
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
 
 \clearpage
 
