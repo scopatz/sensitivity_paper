@@ -701,9 +701,6 @@ Determining the impact of a single input parameter on a nuclear fuel cycle outco
 the uncertainty coefficient $U(x|R)$ measures the importance of $x$.  Table \ref{U_x_R_for_Capacity_with_IJK7} displays the input parameters, ranked by
 uncertainty, for the repository capacity response.
 
-%\input{U_x_R_for_Capacity_with_IJK7}
-\include{U_x_R_for_Capacity_with_IJK7}
-
 As expected, the fast reactor plutonium separation efficiency is shown to be the driver of the system.  
 How much more important this parameter is than the
 other inputs may be quancp titatively stated by taking the ratio of the two $U(x|R)$.  
@@ -762,9 +759,6 @@ due to the fact that inputs were still being measured against a response.
 How one input affects the impact of another input is a critical issue to the system designer.  For example, one would want to know that the gains made by
 changing the \texttt{FR\_SE\_PU} would thrust another, previously unimportant, system design parameter to the fore.  As a second example, if \texttt{HLW\_Storage\_Time} and \texttt{LWR\_UF\_Storage\_Time} are seen to have a strong joint effect, it may mean that pursuing a strategy of extensive pre-emplacement storage would require lengthier pre-separation used fuel storage to be most effective.
 
-%\input{cv_x_y_R_for_Capacity_with_IJK7}
-\include{cv_x_y_R_for_Capacity_with_IJK7}
-
 These sensitivities of sensitivities are measured in terms of the coefficient of variation $c_v$, as described in section \ref{sec:sensitivity_of_sensitivity_metrics}.
 Table \ref{cv_x_y_R_for_Capacity_with_IJK7} shows the top ranked parameter pairs for $c_v(x|y|R)$ for the repository capacity.
 As expected, the top parameters from before (\texttt{FR\_SE\_PU}, \texttt{FR\_SE\_AM}, \& \texttt{HLW\_Storage\_Time}) all exhibit large effects on
@@ -793,14 +787,6 @@ repository.  Therefore, the degree to which plutonium is recycled in the FR rela
 repository performance in a way that may have a greater impact than when altering \texttt{FR\_SE\_PU} and \texttt{FR\_SE\_AM}
 in tandem.
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.70]{FR_SE_AM_and_FR_SE_PU_Decay_Heat.eps}
-\caption{Total \& Top Contributor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{FR\_SE\_AM}, \texttt{FR\_SE\_PU}).}
-\label{am_pu_decay_heat}
-\end{center}
-\end{figure}
-
 Such covariant effects are visible in Figure \ref{am_pu_decay_heat}.
 Low values of \texttt{FR\_SE\_PU} and \texttt{FR\_SE\_AM} have high decay heats and high values have low decay heats.
 However, for the middle cases where one parameter is high and one is low, the top contributor takes on the value of the low separation efficiency.
@@ -812,9 +798,6 @@ The switch between Am/Pu and the two order of magnitude range in the decay heat 
 
 The interplay between the FR americium SE and the FR transuranic conversion ratio exhibits a covariance
 to the repository capacity.  As seen in Table \ref{cv_x_y_R_for_Capacity_with_IJK7}, these two inputs display a relatively high sensitivity of sensitivity.  The covariance effect here is confirmed by examining Table \ref{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}.
-
-%\input{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
-\include{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
 
 Table \ref{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop} displays the probability table, which is a normalized representation of the contingency table.
 This table shows that repository capacity increases with increasing \texttt{FR\_SE\_AM}, a result consistent
@@ -839,14 +822,6 @@ The top two inputs from the sensitivity study, \texttt{FR\_SE\_PU} and \texttt{H
 Through an examination of the the 3D contingency table, high repository capacities are only allowed when both \texttt{FR\_SE\_PU} and
 \texttt{HLW\_Storage\_Time} are high.  Similarly, low capacities occur for low values of the two inputs.  Middle values for either of the
 inputs yield middling capacities.  Additionally, the entropy increases with increasing \texttt{FR\_SE\_PU} and \texttt{HLW\_Storage\_Time}.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.70]{FR_SE_PU_and_HLW_Storage_Time_Decay_Heat.eps}
-\caption{Total \& Top Contributor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{HLW\_Storage\_Time}, \texttt{FR\_SE\_PU}).}
-\label{hlw_pu_decay_heat}
-\end{center}
-\end{figure}
 
 Physically, the reason for this covariance is because the HLW storage time effectively shifts the opening time of the repository.
 By having a long \texttt{HLW\_Storage\_Time}, the short- and medium-term repository temperature limits may be avoided.
@@ -1152,13 +1127,38 @@ Totals & 29     & 31       & 60 \\
 
 \clearpage
 
-\clearpage
+%\input{U_x_R_for_Capacity_with_IJK7}
+\include{U_x_R_for_Capacity_with_IJK7}
 
 \clearpage
 
-\clearpage
+%\input{cv_x_y_R_for_Capacity_with_IJK7}
+\include{cv_x_y_R_for_Capacity_with_IJK7}
 
 \clearpage
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.70]{FR_SE_AM_and_FR_SE_PU_Decay_Heat.eps}
+\caption{Total \& Top Contributor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{FR\_SE\_AM}, \texttt{FR\_SE\_PU}).}
+\label{am_pu_decay_heat}
+\end{center}
+\end{figure}
+
+\clearpage
+
+%\input{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
+\include{FR_SE_AM_and_FR_TRU_CR_to_Capacity_with_IJK433_prop}
+
+\clearpage
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.70]{FR_SE_PU_and_HLW_Storage_Time_Decay_Heat.eps}
+\caption{Total \& Top Contributor Decay Heat [Watts/kg] of HLW for the parameter pair (\texttt{HLW\_Storage\_Time}, \texttt{FR\_SE\_PU}).}
+\label{hlw_pu_decay_heat}
+\end{center}
+\end{figure}
 
 \clearpage
 
