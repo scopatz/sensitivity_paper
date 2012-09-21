@@ -220,14 +220,6 @@ realizations yield information on how the system as a whole performs.
 Two independent parameters ($x$ and $y$) and one response ($R$) variable are examined.
 This methodology may be seen graphically in Figure \ref{mcmethod}.
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.70]{MonteCarloMethodology.eps}
-\caption{Monte Carlo Methodology \& Analysis Diagram}
-\label{mcmethod}
-\end{center}
-\end{figure}
-
 To further system analysis objectives, `standard' statistical metrics (such as the mean response
 over all runs) may be calculated.  However, the usual correlation coefficients imply a linear
 relationship between input and response.  Given the complexity of the system, linearity is not
@@ -291,14 +283,6 @@ constraints.
 
 \subsection{Fuel Cycle Schema}
 \label{sec:fcschema}
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.50]{LWR_FR.eps}
-\caption{LWR-FR Symbiotic Fuel Cycle Scenario}
-\label{lwr_fr_fc}
-\end{center}
-\end{figure}
 
 A sodium cooled fast burner (FR) - light water reactor (LWR) symbiotic cycle is studied here.
 It is more fully detailed in \cite{Li2009b} and the corresponding flowchart
@@ -391,11 +375,6 @@ large enough that expanding the domain size further does not significantly
 alter the sensitivities.
 
 
-%\input{param_def.tex}
-%\include{param_def.tex}
-\include{param_def}
-
-
 \section{Contingency Tables}
 \label{sec:ct}
 
@@ -425,24 +404,6 @@ fictitious sample population, a biologist may be interested in the correlation b
 They might then set up a $2\times 2$ tabulation similar to Table \ref{biotable}.  Structurally, the matrix of 
 data itself sits in the center, while marginal sums are displayed along the right and bottom.
 
-\begin{table}[htbp]
-\begin{center}
-\caption{Hair Color to Sex Contingency Table}
-\label{biotable}
-\begin{tabular}{|l||c|c||c|}
-\hline
-       & Blonde & Brunette & Totals \\
-\hline
-Female & 18     & 17       & 35 \\
-\hline
-Male   & 11     & 14       & 25 \\
-\hline
-Totals & 29     & 31       & 60 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
 Of note for Table \ref{biotable} is that both sex and hair color can be interpreted as responses to 
 underlying human biological mechanisms.  Since the body is being treated as a black box, contingency 
 tables do not distinguish between input and output parameters.
@@ -461,9 +422,6 @@ Table \ref{ct2d_example} displays a $4\times 3$ fuel cycle CT from the data set 
 the Monte Carlo loop.   This example compares the FR plutonium separation efficiency (SE) to the 
 repository capacity, irrespective of what the values the other 29 system inputs take on.
 
-%\input{ct2d_example}
-\include{ct2d_example}
-
 The zero entry in Table \ref{ct2d_example} implies that for low plutonium separation efficiencies a 
 high repository capacity is impossible.  Additionally, some regions arise rarely, assumedly only for 
 extreme values of one or more other inputs. High plutonium SE and low repository capacities occur with 
@@ -479,9 +437,6 @@ examines two independent parameters ($x$ and $y$) and one response ($R$).  For i
 if the SE of plutonium coming from the FR changes, it is expected that the relative benefit 
 from the HLW storage period will also change.
 Thus the repository capacity must be expressed as a combination of these two parameters together.
-
-%\input{ct3d_example}
-\include{ct3d_example}
 
 Table \ref{ct3d_example} has a $4\times 3\times 3$ bin structure relating the $R$ response to $x$ \& $y$ inputs.  Here, it is essential to note that every $y$ bin
 is itself a 2D contingency table for $x$ to $R$.
@@ -1132,6 +1087,71 @@ Anthony Scopatz, Jun Li, Man-sung Yim, and Erich Schneider.
 
 \end{thebibliography}
 
+\clearpage
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.70]{MonteCarloMethodology.eps}
+\caption{Monte Carlo Methodology \& Analysis Diagram}
+\label{mcmethod}
+\end{center}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.50]{LWR_FR.eps}
+\caption{LWR-FR Symbiotic Fuel Cycle Scenario}
+\label{lwr_fr_fc}
+\end{center}
+\end{figure}
+
+\clearpage
+
+%\input{param_def.tex}
+%\include{param_def.tex}
+\include{param_def}
+
+\clearpage
+
+\begin{table}[htbp]
+\begin{center}
+\caption{Hair Color to Sex Contingency Table}
+\label{biotable}
+\begin{tabular}{|l||c|c||c|}
+\hline
+       & Blonde & Brunette & Totals \\
+\hline
+Female & 18     & 17       & 35 \\
+\hline
+Male   & 11     & 14       & 25 \\
+\hline
+Totals & 29     & 31       & 60 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\clearpage
+
+%\input{ct2d_example}
+\include{ct2d_example}
+
+\clearpage
+
+%\input{ct3d_example}
+\include{ct3d_example}
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
+
+\clearpage
 
 
 \end{document}
