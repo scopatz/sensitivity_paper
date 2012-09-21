@@ -100,7 +100,7 @@ In general, development and deployment decisions are justified by weighing their
 against the expected benefits, monetary, monetizable or otherwise, that follow when they 
 come to fruition.  To that end, multiple NFC simulation models  \cite{Jacobson2009, GENIUS1} 
 have been devised.  
-\textcolor{red}{One aim of these fuel cycle simulators is to enable}
+One aim of these fuel cycle simulators is to enable
 hypothetical fuel cycle outcomes to be quantified.  
 Two major challenges associated with this goal are the uncertainties in the deployment and performance 
 of other NFC technologies and the nuclear energy industry as a whole, and the complex 
@@ -145,7 +145,6 @@ measure supports fuel cycle analysis and decision-making by identifying inputs (
 parent technologies) that can, if also altered, augment or reduce the effect of the decision
 being considered.
 
-\textcolor{red}{
 Other general uncertainty quantification techniques for handling large systems 
 exist, such as surrogate model strategies.  For example, stochastic collocation 
 \cite{Mathelin03} using polynomial chaos replaces the Monte Carlo 
@@ -157,7 +156,6 @@ precisely what the entropy-based methods here avoid.  Additionally, since functi
 derivatives are not needed, a major benefit of stochastic collocation would go
 unused.  Furthermore, due to the large number of fuel cycle parameters possible
 the entropy scale well in a fashion that the surrogate models considered do not.
-}
 
 The remainder of this paper is organized as follows.  \S \ref{sec:it-overview} provides a brief overview 
 of the field of information theory and its underlying metrics, which are relied on heavily in this paper.
@@ -296,8 +294,8 @@ constraints.
 
 \begin{figure}[htbp]
 \begin{center}
-\colorbox{lightred}{\includegraphics[scale=0.50]{LWR_FR.eps}}
-\textcolor{red}{\caption{LWR-FR Symbiotic Fuel Cycle Scenario}}
+\includegraphics[scale=0.50]{LWR_FR.eps}
+\caption{LWR-FR Symbiotic Fuel Cycle Scenario}
 \label{lwr_fr_fc}
 \end{center}
 \end{figure}
@@ -314,7 +312,6 @@ in order to strike a reasonable balance between input space richness, complexity
 The fast reactors exist in support of the current and near-future
 fleet of light-water reactors. The LWR used fuel (UF), after a cooling
 period, is sent to an aqueous reprocessing facility. 
-\textcolor{red}{
 Here the transuranics (TRU) are separated out
 from the fission products (FP) and
 the used uranium (UU).  The FP stream is further partitioned at the
@@ -322,7 +319,6 @@ LWR fuel reprocessing plant. The cesium and strontium are
 separated out from the remaining FP. The Cs and Sr are
 then emplaced in a storage facility built for medium-lived
 isotopes while the UU goes to a low-level waste (LLW) disposal facility.
-}
 The remaining FPs and any losses from the other
 streams (TRU, U, Cs/Sr) are treated as high-level waste (HLW) and sent to
 the repository for permanent disposal.
@@ -375,28 +371,24 @@ responses computed by the model.  The scale column lists the sampling function
 and the binning method implemented (see section \ref{sec:binning}) for each input parameter.
 
 In the case where a set of input parameters is chosen such that the cycle is not physically 
-\textcolor{red}{calculable},
+calculable,
 internal variables inside of the models are adjusted to a point such that the fuel cycle is feasible.
 For example, suppose a vector of inputs specifies a high value of the LWR burnup as well as other default
 internal parameters.  
-\textcolor{red}{
 The reactor model will adjust the non-leakage probability, the initial enrichment
 of the fresh fuel, and the discharge fluence (as a surrogate for cycle length) until 
 these are tuned such that the stochastic burnup value is obtained.  Since this 
 is an infinite lattice model, the number of fuel regions remains constant.
-}
 
 Thus every fuel cycle realization is its own distinct cycle, tuned for the stochastic parameters selected.
 However, by bounding the input parameters and comparing many realizations, this study shows that the
 output parameters are also bounded.  The spread of the output parameters due to changes in the inputs
 determines the relative importance of that input.  
-\textcolor{red}{
 Note that the min and max bounds
 in Table \ref{param_def} do affect the sensitivity metrics that are calculated.
 To mitigate this problem, the bounds for each parameter are taken to be 
 large enough that expanding the domain size further does not significantly 
 alter the sensitivities.
-}
 
 
 %\input{param_def.tex}
@@ -407,13 +399,11 @@ alter the sensitivities.
 \section{Contingency Tables}
 \label{sec:ct}
 
-\textcolor{red}{
 After the each of the input parameters are stochastically chosen, the analysis 
 loop of Figure \ref{mcmethod} is entered. 
 Since all inputs are varied simultaneously, 
 the response from any given input parameter is implicitly a function of all other 
 input parameters as well.
-} 
 With thirty inputs, all outcomes exist in a 31 dimensional 
 space.
 
@@ -509,7 +499,6 @@ the strength of association between input parameters and responses in contingenc
 This allows the system designer to determine the most `important' input parameters to this response.  For example, one
 could quantitatively state the degree of importance of FR plutonium SE relative to the repository drift diameter in the sense of how each affects the repository capacity.
 
-\textcolor{red}{
 Note that these are fundamentally distinct from the Monte Carlo statistics 
 which may be computed. For the input parameters, the standard deviation $\sigma(x)$
 is determined by the sampling function for $x$. (Inputs sampled via a 
@@ -519,15 +508,12 @@ of the response $\sigma(R)$ is the same for all inputs.  This can be seen in Tab
 \ref{ct2d_example} \& \ref{ct3d_example} where the marginal sum in right-most column, 
 the distribution of $R$ summed over all $x$, is the same.  For these tables
 $\sigma(R)\approx 5.6\times 10^6$ where $R$ is the repository capacity.
-}
 
-\textcolor{red}{
 Because $\sigma(x)$ and $\sigma(R)$ are both independent of $R(x)$, a
 more appropriate statistic would be the conditional variance $\sigma^2(x|R)$.  
 However, this is not a traditional stochastic metric.  Instead the entropy-based
 measures seen below - for which $R(x)$ need not be explicitly known - take the 
 place of such a conditional variance.
-}
 
 \subsubsection{Entropy}
 \label{sec:entropy}
@@ -713,9 +699,7 @@ measure of covariance effects between $x$ and $y$.  The covariance metric shows 
 pairs have a significant joint effect on the fuel cycle. Hence, $x$ and $y$ may exhibit a greater 
 (or less than) commensurate response on the fuel cycle response than the sum of $x$ and $y$ effects individually.
 
-\textcolor{red}{
 A brief examination of the binning structure and how it was determined follows. 
-}
 Then, an illustration of the rankings of all fuel cycle metrics for the 2D \& 3D sensitivities 
 and covariant analyses is presented.  The final portion of this section reviews case studies 
 about particular parameters and pairs of interest.
@@ -750,10 +734,8 @@ densely populated region, adding information about the distribution that was not
 From this one might conclude that only an infinite number of partitions and bins would converge 
 to the `true' value of the entropy.  However, this is not necessary for contingency tables.  
 The metrics (entropy, uncertainty, \emph{et cetera}) rely on the relative populations of the bins.
-\textcolor{red}{
 An infinite number of partitions would result in zero or one particle per bin, 
 thereby giving poor statistics.
-}
 
 Thus there is a balancing act between the number of bins and the number of stochastic simulation executions.  This study uses a symmetric seven bins per axis formulation.  (Two dimensional tables have $7^2=49$ bins while the three dimensional tables have
 $7^3=343$ bins.)
@@ -811,10 +793,8 @@ uncertainty, for the repository capacity response.
 \include{U_x_R_for_Capacity_with_IJK7}
 
 As expected, the fast reactor plutonium separation efficiency is shown to be the driver of the system.  
-\textcolor{red}{
 How much more important this parameter is than the
 other inputs may be quancp titatively stated by taking the ratio of the two $U(x|R)$.  
-}
 For instance, \texttt{LWR\_SE\_AM}, the parameter at rank 7,
 has an uncertainty of 0.007304.  Meanwhile \texttt{FR\_SE\_PU} has an uncertainty of 0.07667.  The ratio of these uncertainties,
 and thus the magnitude of the parameters' effects on relative repository capacity, is 10.5.
@@ -933,9 +913,7 @@ of americium separations increases with increasing \texttt{FR\_TRU\_CR}.
 This covariance effect is due in part to the fact that the \texttt{FR\_TRU\_CR} is the major driver of the support ratio.  As the conversion ratio
 increases, the mass of LWR UF required per kilogram of FR fresh fuel decreases.  Therefore all components downstream from the FR become correspondingly more important;
 there are simply fewer LWRs.  
-\textcolor{red}{
 Specifically, the relative impact of \texttt{FR\_SE\_AM} increases.
-}
 
 Due to increasing \texttt{FR\_TRU\_CR}, the americium contribution (as measured through \nuc{Am}{241}) negatively affects the repository capacity.  At high conversion ratios, there is more high Am content FR UF per unit nuclear electricity produced.  This in turn implies that the
 packing density of used fuel per meter of drift tunnel goes down.  Therefore the total mass of heavy metal (\texttt{Capacity}) that may be stored in a
@@ -980,7 +958,6 @@ matter.  The contingency tables represent a (coarsely-gridded) importance map fo
 the inverse problem.  Conditioned on a specific system response, 
 like repository capacity, the measure of the strength of response provided by the uncertainty coefficients can provide guidance to technologists optimizing design parameters in the face of uncertainty regarding the shape of the larger system.  Illuminating joint dependencies, coefficients of variation can guide iterative technology development by showing which design features must be considered together.
 
-\textcolor{red}{
 The approach described here can be generalized to include boolean as well as 
 continuous inputs.  For example, if the technology ultimately chosen for the 
 permanent repository is unknown, a boolean flag can allow each stochastic 
@@ -996,7 +973,6 @@ capacity regardless of technology.  In view of the uncertainties in the
 direction taken by nuclear energy in the future, coupled with the need to 
 develop technologies now that can support or even enable these outcomes, 
 this capability, if developed, could provide invaluable guidance.
-}
 
 %\bibliography{library.bib}{}
 
